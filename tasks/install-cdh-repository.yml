@@ -1,0 +1,4 @@
+---
+  - name: add CDH Manager yum repo
+    sudo: yes
+    shell: yum-config-manager --add-repo http://archive.cloudera.com/cm4/redhat/6/x86_64/cm/cloudera-manager.repo

@@ -14,8 +14,8 @@
     - tree
     - curl
     - oracle-j2sdk1.6 # TODO: check actual version we need
- - name: cleanup hosts file to remove localhost aliases
-   action: lineinfile dest=/etc/hosts regexp="^127.0.1.1" line=""
+# - name: cleanup hosts file to remove localhost aliases
+#   action: lineinfile dest=/etc/hosts regexp="^127.0.1.1" line=""
  handlers:
  - name: start ntp
    action: service name=ntp state=started

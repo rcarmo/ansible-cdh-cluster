@@ -2,6 +2,7 @@
   user: azureuser
   sudo: yes
   tasks:
+  - include: tasks/set-timezone.yml
   - include: tasks/install-cdh-repository.yml
   - name: update all packages
     yum: name=* state=latest
@@ -12,6 +13,7 @@
      - sudo
      - tree
      - curl
+  - include: tasks/install-onprem-packages.yml
   handlers:
   - name: start ntp
     action: service name=ntp state=started

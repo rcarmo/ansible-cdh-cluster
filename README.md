@@ -1,7 +1,19 @@
 ansible-cdh-cluster
 ===================
 
-> ongoing port to CentOS
+This is a port to CentOS of the original Cloudera Ansible playbook, targeting OpenLogic's Azure images.
+
+## TODO:
+
+[ ] Instance provisioning (ansible Azure provider hasn't yet shipped a release with the latest fixes)
+[x] Setup base packages
+[x] Setup timezone and NTP
+[ ] Setup volumes
+[ ] Split tasks into roles
+
+
+ORIGINAL README
+===============
 
 The available playbooks can be used to:
 - setup a CDH based Hadoop cluster via Cloudera Manager and integrated Cloudera Search

@@ -11,6 +11,10 @@ This is a port to CentOS of the original Cloudera Ansible playbook, targeting Op
 [ ] Setup volumes
 [ ] Split tasks into roles
 
+# Things missing:
+
+[ ] `rhnlib`/Spacewalk is not included by default in OpenLogic (easy to fix)
+
 
 ORIGINAL README
 ===============

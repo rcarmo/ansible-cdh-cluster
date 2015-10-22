@@ -7,4 +7,10 @@
     - name: Set timezone to Portugal
       shell: mv /etc/localtime /etc/localtime.old
       shell: cp /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
-      sudo: true
+    - name: Install NTP
+        yum: name={{ item }} state=latest
+        with_items:
+        - ntp
+    handlers:
+    - name: Start ntp
+        action: service name=ntp state=started

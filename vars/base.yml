@@ -4,5 +4,3 @@ cmpassword: admin
 
 cdhparceldir: /opt/cloudera/parcels/CDH
 solrparceldir: /opt/cloudera/parcels/SOLR
-
-

@@ -1,0 +1,49 @@
+---
+- hosts: all
+  user: azureuser
+  sudo: yes
+  tasks:
+  - name: install packages from on-prem bootstrap script
+    yum: name={{ item }} state=latest
+    with_items:
+     - strace
+     - glibc-devel
+     - freetype
+     - libSM
+     - libXi
+     - libXrender
+     - libxml2-python
+     - pyOpenSSL
+     # Spacewalk is not included in OpenLogic
+     #- rhnlib
+     - libstdc++-devel
+     - sysstat
+     - kexec-tools
+     - telnet
+     - parted
+     - nfs-utils-lib
+     - nfs4-acl-tools
+     - nfs-utils
+     - cvs
+     - cyrus-sasl-gssapi
+     - db4-cxx
+     - db4-devel
+     - fuse
+     - fuse-libs
+     - gdbm-devel
+     - gettext
+     - initscripts
+     - libgomp
+     - patch
+     - pax
+     - perl-CGI
+     - perl-devel
+     - perl-ExtUtils-MakeMaker
+     - perl-ExtUtils-ParseXS
+     - perl-Test-Harness
+     - perl-Test-Simple
+     - redhat-lsb-core
+     - screen
+     - krb5-workstation
+     - dstat
+     - ksh

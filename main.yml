@@ -1,17 +1,6 @@
 ---
-  - hosts: all
-    user: azureuser
-    sudo: yes
-    tasks:
-    - name: Install base packages
-      yum: name={{ item }} state=latest
-      with_items:
-       - sudo
-       - tree
-       - curl
-       - libselinux-python.x86_64 # necessary for sysctl
-#    - include: tasks/set-timezone.yml
-#    - include: tasks/install-onprem-packages.yml
-#  - name: Update all packages
-#    yum: name=* state=latest
-#  - include: tasks/install-cdh.yml
+- hosts: all
+  user: azureuser
+  roles:
+   - base
+ 

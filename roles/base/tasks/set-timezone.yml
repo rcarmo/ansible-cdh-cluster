@@ -1,0 +1,17 @@
+---
+# Copy instead of linking to avoid side-effects from package updates
+- name: Set timezone to Portugal
+  sudo: yes
+  shell: mv /etc/localtime /etc/localtime.old
+  shell: cp /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
+- name: Install NTP
+  sudo: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - ntp
+  tags:
+    - packages
+    - configuration
+handlers:
+- name: Start ntp
+    action: service name=ntp state=started

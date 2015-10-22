@@ -1,0 +1,26 @@
+---
+  - hosts: all
+    tasks:
+    - name: copy public keys 
+      authorized_key: user={{ ansible_ssh_user }} key="{{ item }}" 
+      with_file: 
+       - ~/.ssh/id_rsa.pub 
+      tags: 
+       - configuration 
+
+    - name: Install base packages
+      sudo: yes
+      yum: name={{ item }} state=latest
+      with_items:
+       - tree
+       - curl
+       - libselinux-python.x86_64 # necessary for sysctl
+      tags:
+       - packages
+       
+	- include: set-timezone.yml
+	- include: install-onprem-packages.yml
+	- include: install-cdh-repository.yml
+	- include: tune-kernel.yml
+#  - name: Update all packages
+#    yum: name=* state=latest
